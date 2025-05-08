@@ -34,17 +34,17 @@ export default function AboutMe() {
         <Box component="ul" sx={{ px: 1, listStyle: 'none'}}>
           <li style={{ marginBottom: '1rem' }}>
             <Typography>
-              <span style={{ marginRight: '6px' }}>👋</span> You can call me <strong>Fiona</strong>.
+              <span style={{ marginRight: '4px' }}>👋</span> You can call me <strong>Fiona</strong>.
             </Typography>
           </li>
           <li style={{ marginBottom: '1rem' }}>
             <Typography>
-              <span style={{ marginRight: '6px' }}>🌎</span> Current Location: <strong>Auckland, New Zealand</strong>
+              <span style={{ marginRight: '4px' }}>🌎</span> Current Location: <strong>Auckland, New Zealand.</strong>
             </Typography>
           </li>
           <li>
             <Typography>
-              <span style={{ marginRight: '6px' }}>✈️</span> Lived in <strong>Shanghai, China</strong> in the past.
+              <span style={{ marginRight: '4px' }}>✈️</span> Lived in <strong>Shanghai, China</strong> in the past.
             </Typography>
           </li>
         </Box>

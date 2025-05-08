@@ -18,7 +18,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: ['Inter', 'ui-sans-serif', 'system-ui'].join(','),
+    fontFamily: ['JetBrains Mono', 'Fira Code', 'monospace'].join(','),
     allVariants: {
       color: '#E5E7EB',
     },

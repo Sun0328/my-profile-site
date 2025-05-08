@@ -31,10 +31,15 @@ export default function ProjectList() {
             rel="noopener noreferrer"
           >
             <div 
-              className="border rounded-lg p-4 shadow-lg
-              h-full flex flex-col transition-all duration-300 ease-in-out
-              hover:scale-105 hover:shadow-xl hover:bg-indigo-900/20" 
-              style={{ borderColor: 'rgba(79, 70, 229, 0.4)' }}
+              className="
+              border border-indigo-500/40    
+              hover:border-2               
+              rounded-lg p-4 shadow-lg
+              h-full flex flex-col
+              transition-all duration-300 ease-in-out
+              hover:scale-[1.03] hover:shadow-xl
+              bg-gray-800/30
+            "
             >
               <div className="flex items-center my-4 ml-4">
                 {project.icon && (
