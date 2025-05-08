@@ -21,7 +21,7 @@ export default function ProjectList() {
 
   return (
     <div className="container mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
         {projects.map((project) => (
           <Link 
             href={`${project.link}`} 
@@ -47,8 +47,8 @@ export default function ProjectList() {
                     <Image 
                       src={project.icon} 
                       alt={`${project.title} icon`} 
-                      width={30} 
-                      height={30} 
+                      width={40} 
+                      height={40} 
                       className="rounded-md"
                     />
                   </div>

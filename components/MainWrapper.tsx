@@ -9,7 +9,7 @@ export const MainWrapper = () => {
     <FloatingContent>
       <div className="w-full flex flex-col">
         {/* Intro */}
-        <section className="flex items-center justify-center my-6">
+        <section className="flex items-center justify-center">
           <Info />
         </section>
 

@@ -28,3 +28,12 @@ model project {
     description String
     link      String?
 }
+
+// model for message
+model message {
+    id         BigInt   @id @default(autoincrement())
+    created_at DateTime @default(now())
+    content    String
+    sender     String?
+    sender_avatar String?
+}
