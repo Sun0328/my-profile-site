@@ -1,29 +1,35 @@
-// app/api/blog/[id]/route.ts
+// app/api/blogs/route.ts
 import { PrismaClient } from '@prisma/client';
 import { NextResponse } from 'next/server';
 
 const prisma = new PrismaClient();
 
-export async function GET(
-  req: Request,
-  context: { params: { id: string } }
-) {
-  const { id } = context.params; // ✅ 不需要 await
+export async function GET(request: Request, context: { params: { id: string } }) {
+    try {
+        const params = await context.params;
+        const { id } = params;
 
-  if (!id || isNaN(Number(id))) {
-    return NextResponse.json({ error: 'Invalid blog ID' }, { status: 400 });
-  }
+        const blogs = await prisma.blog.findMany({
+            orderBy: { created_at: 'desc' },
+        }); 
 
-  const blog = await prisma.blog.findUnique({
-    where: { id: BigInt(id) },
-  });
+        // BigInt to string
+        const serialized = blogs.map((blog) => ({
+            ...blog,
+            id: blog.id.toString(),
+        }));    
 
-  if (!blog) {
-    return NextResponse.json({ error: 'Blog not found' }, { status: 404 });
-  }
+        const blog = serialized.find((blog) => blog.id === id);
 
-  return NextResponse.json({
-    ...blog,
-    id: blog.id.toString(),
-  });
+        if (!blog) {
+            return NextResponse.json({ error: 'Blog not found' }, { status: 404 });
+        }   
+        return NextResponse.json({
+            ...blog,
+            id: blog.id.toString(),
+        });
+    } catch (error) {
+        console.error('Error fetching blog:', error);
+        return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    }
 }
