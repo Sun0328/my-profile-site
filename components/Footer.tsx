@@ -7,7 +7,7 @@ export const Footer = () => {
       "
     >
       <div>© 2025 Fiona Sun. All rights reserved.</div>
-      <div>Made with ❤️ and ☕</div>
+      <div>Made with ❤️ and 🍰</div>
     </div>
   );
 };

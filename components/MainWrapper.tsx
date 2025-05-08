@@ -14,15 +14,15 @@ export const MainWrapper = () => {
         </section>
 
         {/* Main */}
-        <section className="flex w-full my-4">
+        <section className="flex w-full my-6">
 
           {/* Left side */}
-          <div className="w-3/5 flex flex-col">
+          <div className="w-3/5 flex flex-col mt-6">
             <LatestPost />
           </div>
 
           {/* Right side */}
-          <div className="w-2/5 flex flex-col items-center justify-start space-y-6">
+          <div className="w-2/5 flex flex-col items-center justify-start mt-6 space-y-6">
             <AboutMe />
             <Stack />
           </div>

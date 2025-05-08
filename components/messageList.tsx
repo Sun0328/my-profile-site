@@ -17,16 +17,18 @@ export default function messageList({ messages }: Props) {
     <div className="container mx-auto mt-10">
       <div className="flex flex-col gap-8 justify-center items-start">
         {sorted.map((message) => (
-            <div key={message.id} className="border-l-2 border-yellow-400 pl-4">
-                {message.content}
-                <div className="text-sm text-gray-500">
-                    {formatRelativeTime(message.created_at)}
+            <div key={message.id} className="border-l-2 border-yellow-600 pl-6 my-2">
+                <div className='flex flex-row items-center gap-4 mb-4'>
+                    <img src={message.sender_avatar} alt="user-avatar" className='w-8 h-8 rounded-full' />
+                    <div className="text-sm">
+                        {message.sender}
+                    </div>
+                    <div className="text-sm text-gray-500">
+                      {formatRelativeTime(message.created_at)}
+                    </div>
                 </div>
-                <div className="text-sm text-gray-500">
-                    {message.sender}
-                </div>
-                <div className="text-sm text-gray-500">
-                    {message.sender_avatar}
+                <div className='mt-2'>
+                  {message.content}
                 </div>
             </div>
         ))}

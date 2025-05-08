@@ -3,6 +3,14 @@ import { Navbar } from './Navbar'
 import { Avatar } from './Avatar'
 import Link from "next/link";
 import GitHubIcon from '@mui/icons-material/GitHub';
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+import {
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs'
 
 export const Header = () => {
   return (
@@ -18,16 +26,30 @@ export const Header = () => {
         <Navbar />
       </div>
 
-      {/* GitHub link */}
-      <div className="flex items-center justify-end">
-        <Link
-          href="https://github.com/Sun0328/my-profile-site"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-2 rounded-full"
-        >
-          <GitHubIcon />
-        </Link>
+      {/* Auth buttons */}
+      <div className="flex items-center justify-end mr-10">
+        <SignedOut>
+          <SignInButton mode="modal">
+            <div
+              className="
+                cursor-pointer 
+                text-3xl 
+                transition-transform
+                duration-200
+                ease-in-out 
+                hover:scale-110
+                hover:text-gray-400
+              "
+            >
+              {/* 让 Icon 跟着父容器的 font-size */}
+              <PersonAddAltIcon fontSize="inherit" />
+            </div>
+          </SignInButton>
+        </SignedOut>
+
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
       </div>
     </header>
   )

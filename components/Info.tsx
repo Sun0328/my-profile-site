@@ -24,7 +24,7 @@ export default function Info() {
     <div className="grid w-full grid-cols-[60%_40%] pb-6 border-b-1 border-gray-500">
       {/* left: 60% – stacked in one column */}
       <div className="flex flex-col items-start justify-center space-y-4">
-        <div className='text-4xl font-bold mt-2 mb-6' style={{ 
+        <div className='text-4xl font-bold my-8' style={{ 
           fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
           letterSpacing: "0.5px",
           background: "linear-gradient(135deg, #4F46E5 0%, #A5B4FC 100%)",
@@ -32,12 +32,12 @@ export default function Info() {
           WebkitTextFillColor: "transparent",
           textShadow: "0 2px 10px rgba(79, 70, 229, 0.3)",
         }}>
-          Hi, I'm Fiona
+          Hi, I'm Fiona.
         </div>
         <Typewriter text={aboutJSON} speed={40} />
 
         <p
-          className="text-xl tracking-wide leading-relaxed"
+          className="text-xl tracking-wide leading-relaxed my-6"
           style={{ fontFamily: "'JetBrains Mono', 'Fira Code', monospace" }}
         >
           I'm a master student at University of Auckland majoring in Information Technology. 
