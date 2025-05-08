@@ -1,0 +1,20 @@
+// Prisma schema file,
+generator client {
+    provider = "prisma-client-js"
+    output   = "../node_modules/.prisma/client"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+// model for blog
+model blog {
+    id         BigInt   @id @default(autoincrement())
+    created_at DateTime @default(now())
+    title      String
+    photo      String?
+    content    String
+    author     String
+}
