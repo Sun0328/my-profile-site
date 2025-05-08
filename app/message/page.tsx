@@ -4,7 +4,9 @@ import { useState, useCallback, useEffect } from 'react'
 import FloatingContent from "@/components/animations/FloatingContent";
 import type { Message } from '@/types/message'
 import MessageInput from "@/components/MessageInput";
+import SignOutBox from "@/components/SignOutBox";
 import MessageList from "@/components/messageList";
+import { SignedIn, SignedOut } from '@clerk/nextjs';
 
 export default function Message() {
     const [messages, setMessages] = useState<Message[]>([])
@@ -24,7 +26,15 @@ export default function Message() {
             <FloatingContent>
                 <div className="text-3xl my-6">Message Board</div>
                 <div className="text-xl my-6">Feel free to leave a message for me!</div>
-                <MessageInput onSent={fetchMessages}/>
+
+                <SignedIn>  
+                    <MessageInput onSent={fetchMessages}/>
+                </SignedIn>
+
+                <SignedOut>
+                    <SignOutBox />
+                </SignedOut>
+
                 <MessageList messages={messages}/>
             </FloatingContent>
         </div>
