@@ -13,14 +13,14 @@ export const MainWrapper = () => {
       </section>
 
       {/* Main home */}
-      <section className="flex w-full">
+      <section className="flex w-full my-4">
         {/* Left side */}
-        <div className="w-3/5 flex flex-col items-start my-6">
+        <div className="w-3/5 flex flex-col">
           <LatestPost />
         </div>
 
         {/* Right side */}
-        <div className="w-2/5 flex flex-col items-center justify-center my-6 space-y-6">
+        <div className="w-2/5 flex flex-col items-center justify-start space-y-6">
           <AboutMe />
           <Stack />
         </div>
