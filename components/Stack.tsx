@@ -45,7 +45,7 @@ export default function Stack() {
           </Typography>
         </Box>
 
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, ml: 1}}>
           {icons.map((icon) => (
             <Image
               key={icon.alt}

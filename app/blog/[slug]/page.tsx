@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import type { Blog } from '@/types/blog';
+import FloatingContent from '@/components/animations/FloatingContent';
 
 export default function BlogDetailPage() {
   const [blog, setBlog] = useState<Blog | null>(null);
@@ -29,17 +30,19 @@ export default function BlogDetailPage() {
   if (!blog) return <p>Loading...</p>;
 
   return (
-    <div className="max-w-3xl mx-auto py-10 px-4">
-      <h1 className="text-3xl font-bold">{blog.title}</h1>
-      <p className="text-sm text-gray-500 my-4">
-        {new Date(blog.created_at).toLocaleDateString()} · By {blog.author}
-      </p>
-      {blog.photo && (
-        <img src={blog.photo} alt={blog.title} className="rounded-lg mb-6 w-full" />
-      )}
-      <article className="prose max-w-none">
-        <ReactMarkdown>{blog.content}</ReactMarkdown>
-      </article>
-    </div>
+    <FloatingContent>
+      <div className="max-w-3xl mx-auto py-10 px-4">
+        <h1 className="text-3xl font-bold">{blog.title}</h1>
+        <p className="text-sm text-gray-500 my-4">
+          {new Date(blog.created_at).toLocaleDateString()} · By {blog.author}
+        </p>
+        {blog.photo && (
+          <img src={blog.photo} alt={blog.title} className="rounded-lg mb-6 w-full" />
+        )}
+        <article className="prose max-w-none">
+          <ReactMarkdown>{blog.content}</ReactMarkdown>
+        </article>
+      </div>
+    </FloatingContent>
   );
 }

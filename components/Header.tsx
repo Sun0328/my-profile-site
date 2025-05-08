@@ -6,7 +6,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 
 export const Header = () => {
   return (
-    <header className="grid w-full grid-flow-col grid-cols-3 py-6 border-b-1 border-gray-300">
+    <header className="grid w-full grid-flow-col grid-cols-3 py-6">
       
       {/* Avatar */}
       <div className="flex items-center justify-center">
@@ -21,7 +21,7 @@ export const Header = () => {
       {/* GitHub link */}
       <div className="flex items-center justify-end">
         <Link
-          href="https://github.com/Sun0328"
+          href="https://github.com/Sun0328/my-profile-site"
           target="_blank"
           rel="noopener noreferrer"
           className="p-2 rounded-full"

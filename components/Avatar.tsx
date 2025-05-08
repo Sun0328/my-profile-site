@@ -8,8 +8,8 @@ export const Avatar = () => {
       <img
         src={avatarSrc}
         alt="Me"
-        width={80}
-        height={80}
+        width={90}
+        height={90}
         style={{ objectFit: "cover" }}
       />
     </div>

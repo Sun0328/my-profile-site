@@ -31,20 +31,20 @@ export default function AboutMe() {
           </Typography>
         </Box>
 
-        <Box component="ul" sx={{ pl: 2, listStyle: 'disc', my: 2, mr: 2 }}>
+        <Box component="ul" sx={{ px: 1, listStyle: 'none'}}>
           <li style={{ marginBottom: '1rem' }}>
             <Typography>
-              👋 You can call me <strong>Fiona</strong>.
+              <span style={{ marginRight: '6px' }}>👋</span> You can call me <strong>Fiona</strong>.
             </Typography>
           </li>
           <li style={{ marginBottom: '1rem' }}>
             <Typography>
-              🌎 Current Location: <strong>Auckland, New Zealand</strong>
+              <span style={{ marginRight: '6px' }}>🌎</span> Current Location: <strong>Auckland, New Zealand</strong>
             </Typography>
           </li>
           <li>
             <Typography>
-              ✈️ Lived in <strong>Shanghai, China</strong> in the past.
+              <span style={{ marginRight: '6px' }}>✈️</span> Lived in <strong>Shanghai, China</strong> in the past.
             </Typography>
           </li>
         </Box>

@@ -10,18 +10,30 @@ const theme = createTheme({
   palette: {
     primary: { main: "#4F46E5" },
     text: {
-      primary: '#1F2937', // text-neutral-800
+      primary: '#E5E7EB', 
+      secondary: '#D1D5DB', 
+    },
+    background: {
+      default: 'transparent',
     },
   },
   typography: {
     fontFamily: ['Inter', 'ui-sans-serif', 'system-ui'].join(','),
+    allVariants: {
+      color: '#E5E7EB',
+    },
   },
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
+      <body style={{ 
+        backgroundImage: "url('/images/bg_black.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center top",
+        backgroundRepeat: "no-repeat",
+      }}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
           {/* Center the 80%-wide container with mx-auto */}
@@ -29,7 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Header />
 
               <main className="flex-grow">
-                {children}
+                  {children}
               </main>
 
               <Footer />

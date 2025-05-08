@@ -18,3 +18,13 @@ model blog {
     content    String
     author     String
 }
+
+// model for project
+model project {
+    id         BigInt   @id @default(autoincrement())
+    created_at DateTime @default(now())
+    title      String
+    icon      String?
+    description String
+    link      String?
+}

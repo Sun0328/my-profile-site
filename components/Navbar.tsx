@@ -30,7 +30,7 @@ export const Navbar = () => {
       sx={{ 
         height: 56,
         border: '1px solid',
-        borderColor: 'grey.300',
+        borderColor: 'grey.500',
         borderRadius: '99px',
         px: 2,
         py: 5,
@@ -59,7 +59,8 @@ export const Navbar = () => {
               px: 4,
               py: 1.5,
               fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
-              letterSpacing: "0.5px"
+              letterSpacing: "0.5px",
+              fontSize: "1.2rem",
             }}
           >
             {item.name}
