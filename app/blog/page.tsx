@@ -8,10 +8,10 @@ export default function BlogPage() {
     <div className="mx-auto px-6 mb-6">
       <FloatingContent>
         <div className="flex items-center gap-2 my-6">
-          <ArticleIcon className="text-3xl" />
-          <h2 className="text-3xl text-gray-300 ml-2">Blogs</h2>
+          <ArticleIcon className="text-3xl text-gray-300" />
+          <h2 className="text-3xl text-gray-300">Blogs</h2>
         </div>
-        <div className="flex flex-col w-[80%]">
+        <div className="flex flex-col w-full md:w-[80%]">
           <BlogList />
         </div>
       </FloatingContent>

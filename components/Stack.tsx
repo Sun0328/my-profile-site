@@ -22,6 +22,7 @@ export default function Stack() {
     <Card
       sx={{
         maxWidth: 400,
+        width: '100%',
         borderRadius: 3,
         backgroundColor: 'rgba(255, 255, 255, 0.05)',
         color: '#fff',
@@ -45,7 +46,7 @@ export default function Stack() {
           </Typography>
         </Box>
 
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, ml: 1}}>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, px: 1}}>
           {icons.map((icon) => (
             <Image
               key={icon.alt}

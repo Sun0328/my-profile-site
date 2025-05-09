@@ -65,7 +65,7 @@ export default function MessageInput({ onSent }: Props) {
         component="form"
         sx={{ 
           width: '100%', 
-          maxWidth: '70%',
+          maxWidth: { xs: '100%', md: '70%' },
           display: 'flex',
           flexDirection: 'column',
           gap: 2

@@ -13,9 +13,9 @@ export default function LatestPost() {
           width={20}
           height={20}
         />
-        <h2 className="text-3xl text-gray-300 ml-2">Latest Posts</h2>
+        <h2 className="text-3xl text-[#E5E7EB] ml-2">Latest Update</h2>
       </div>
-      <div className="flex flex-col mr-6">
+      <div className="flex flex-col">
         <BlogList />
       </div>
     </div>

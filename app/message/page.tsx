@@ -25,21 +25,21 @@ export default function Message() {
     return (
         <div className="mx-auto px-6 mb-6">
             <FloatingContent>
+                
                 <div className="flex items-center gap-2 my-6">
-                    <ChatBubbleOutlineIcon className="text-3xl" />
-                    <h2 className="text-3xl text-gray-300 ml-2">Message Board</h2>
+                    <ChatBubbleOutlineIcon className="text-3xl text-gray-300" />
+                    <h2 className="text-3xl text-gray-300">Message Board</h2>
                 </div>
-                <div className="text-xl my-6">Feel free to leave a message for me!</div>
 
+                <div className="text-xl text-[#E5E7EB] my-6">Feel free to leave a message for me!</div>
                 <SignedIn>  
                     <MessageInput onSent={fetchMessages}/>
                 </SignedIn>
-
                 <SignedOut>
                     <SignOutBox />
                 </SignedOut>
-
                 <MessageList messages={messages}/>
+
             </FloatingContent>
         </div>
     );

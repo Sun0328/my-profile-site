@@ -32,10 +32,12 @@ export default function ProjectList() {
           >
             <div 
               className="
-              rounded-lg border border-indigo-500/40    
+              px-2 py-2 rounded-lg bg-gray-700/20
+              border border-indigo-500/40    
               hover:border-[#4F46E5]          
               transition-all duration-200 ease-in-out
               hover:shadow-xl hover:scale-105
+              h-[280px] w-full flex flex-col
             "
             >
               <div className="flex items-center my-4 ml-4">
@@ -50,18 +52,18 @@ export default function ProjectList() {
                     />
                   </div>
                 )}
-                <div className="text-xl font-semibold">{project.title}</div>
+                <div className="text-xl text-[#E5E7EB]">{project.title}</div>
               </div>
 
               <p className="text-sm text-gray-400 mb-6 ml-4">
                 {new Date(project.created_at).toLocaleDateString()}
               </p>
               
-              <div className="text-gray-300 text-sm flex-grow ml-4 mb-4">
+              <div className="text-gray-300 text-sm flex-grow ml-4 line-clamp-3 overflow-hidden">
                 {project.description}
               </div>
 
-              <div className="text-gray-300 text-sm flex flex-row items-center ml-4 my-4 space-x-2">
+              <div className="text-gray-300 text-sm flex flex-row items-center ml-4 mb-4 space-x-2 mt-auto">
                 Github: 
                 <div className="ml-2">
                     <OpenInNewIcon color="primary"/>

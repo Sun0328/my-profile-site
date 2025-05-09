@@ -14,17 +14,17 @@ export const MainWrapper = () => {
         </section>
 
         {/* Main */}
-        <section className="flex w-full my-6">
+        <section className="flex w-full my-6 flex-col md:flex-row">
 
-          {/* Left side */}
-          <div className="w-3/5 flex flex-col mt-6">
-            <LatestPost />
-          </div>
-
-          {/* Right side */}
-          <div className="w-2/5 flex flex-col items-center justify-start mt-6 space-y-6">
+          {/* Right side - Shows first on mobile */}
+          <div className="w-full md:w-2/5 flex flex-col items-center justify-start mt-6 space-y-8 order-first md:order-last">
             <AboutMe />
             <Stack />
+          </div>
+
+          {/* Left side - Shows second on mobile */}
+          <div className="w-full md:w-3/5 flex flex-col mt-6 order-last md:order-first">
+            <LatestPost />
           </div>
         </section>
       </div>

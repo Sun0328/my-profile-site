@@ -12,6 +12,7 @@ const aboutJSON = `{
 }`;
 
 const iconStyle = {
+  color: "#E5E7EB",
   transition: "transform 0.3s ease",
   "&:hover": {
     transform: "scale(1.2)",
@@ -20,9 +21,8 @@ const iconStyle = {
 
 export default function Info() {
   return (
-    <div className="grid w-full grid-cols-[60%_40%] pb-6 border-b-1 border-gray-500">
-      {/* left: 60% – stacked in one column */}
-      <div className="flex flex-col items-start justify-center space-y-4">
+    <div className="grid w-full grid-cols-1 md:grid-cols-[60%_40%] pb-6 border-b-1 border-gray-500">
+      <div className="flex flex-col items-start justify-center space-y-4 w-full">
         <div className='text-4xl font-bold my-8' style={{ 
           fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
           letterSpacing: "0.5px",
@@ -36,7 +36,7 @@ export default function Info() {
         <Typewriter text={aboutJSON} speed={40} />
 
         <p
-          className="text-xl tracking-wide leading-relaxed my-6"
+          className="text-xl text-[#E5E7EB] tracking-wide leading-relaxed my-6"
           style={{ fontFamily: "'JetBrains Mono', 'Fira Code', monospace" }}
         >
           I'm a master student at University of Auckland majoring in Information Technology. 
@@ -63,8 +63,8 @@ export default function Info() {
         </div>
       </div>
 
-      {/* right: 40% */}
-      <div className="flex items-center justify-center p-6">
+      {/* right: 在桌面端显示，移动端不显示 */}
+      <div className="hidden md:flex items-center justify-center p-6">
       </div>
     </div>
   );

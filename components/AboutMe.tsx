@@ -8,12 +8,12 @@ export default function AboutMe() {
     <Card
       sx={{
         maxWidth: 400,
+        width: '100%',
         borderRadius: 3,
         backgroundColor: 'rgba(255, 255, 255, 0.05)',
         color: 'black',
         border: '1px solid rgba(79, 70, 229, 0.4)',
         backdropFilter: 'blur(6px)',
-        fontFamily: 'Inter, ui-sans-serif, system-ui',
         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
       }}
     >
@@ -31,20 +31,20 @@ export default function AboutMe() {
           </Typography>
         </Box>
 
-        <Box component="ul" sx={{ px: 1, listStyle: 'none'}}>
+        <Box component="ul" sx={{ px: 2, listStyle: 'none', color: '#E5E7EB'}}>
           <li style={{ marginBottom: '1rem' }}>
             <Typography>
-              <span style={{ marginRight: '4px' }}>👋</span> You can call me <strong>Fiona</strong>.
+              <span style={{ marginRight: '6px' }}>👋</span> You can call me <strong>Fiona</strong>.
             </Typography>
           </li>
           <li style={{ marginBottom: '1rem' }}>
             <Typography>
-              <span style={{ marginRight: '4px' }}>🌎</span> Current Location: <strong>Auckland, New Zealand.</strong>
+              <span style={{ marginRight: '6px' }}>🌎</span> Current Location: <strong>Auckland, New Zealand.</strong>
             </Typography>
           </li>
           <li>
             <Typography>
-              <span style={{ marginRight: '4px' }}>✈️</span> Lived in <strong>Shanghai, China</strong> in the past.
+              <span style={{ marginRight: '6px' }}>✈️</span> Lived in <strong>Shanghai, China</strong> in the past.
             </Typography>
           </li>
         </Box>

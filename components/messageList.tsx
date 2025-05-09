@@ -20,14 +20,14 @@ export default function messageList({ messages }: Props) {
             <div key={message.id} className="border-l-2 border-yellow-700 pl-6 my-2">
                 <div className='flex flex-row items-center gap-4 mb-4'>
                     <img src={message.sender_avatar} alt="user-avatar" className='w-8 h-8 rounded-full' />
-                    <div className="text-sm">
+                    <div className="text-sm text-[#E5E7EB]">
                         {message.sender}
                     </div>
                     <div className="text-sm text-gray-500">
                       {formatRelativeTime(message.created_at)}
                     </div>
                 </div>
-                <div className='mt-2'>
+                <div className='mt-2 text-gray-300'>
                   {message.content}
                 </div>
             </div>

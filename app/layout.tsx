@@ -2,7 +2,6 @@
 
 import "./globals.css";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ClerkProvider } from '@clerk/nextjs'
@@ -10,19 +9,6 @@ import { ClerkProvider } from '@clerk/nextjs'
 const theme = createTheme({
   palette: {
     primary: { main: "#4F46E5" },
-    text: {
-      primary: '#E5E7EB', 
-      secondary: '#D1D5DB', 
-    },
-    background: {
-      default: 'transparent',
-    },
-  },
-  typography: {
-    fontFamily: ['JetBrains Mono', 'Fira Code', 'monospace'].join(','),
-    allVariants: {
-      color: '#E5E7EB',
-    },
   },
 });
 
@@ -37,7 +23,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           backgroundRepeat: "no-repeat",
         }}>
           <ThemeProvider theme={theme}>
-            <CssBaseline />
             {/* Center the 80%-wide container with mx-auto */}
             <div className="mx-auto w-[80%] flex flex-col min-h-screen">
                 <Header />
