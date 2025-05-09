@@ -1,4 +1,6 @@
-import type { Config } from 'tailwindcss';
+// tailwind.config.ts
+import type { Config } from 'tailwindcss'
+import defaultTheme from 'tailwindcss/defaultTheme'
 
 const config: Config = {
   content: [
@@ -8,13 +10,28 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: '#4F46E5',
+        'text-primary': '#E5E7EB',
+        'text-secondary': '#D1D5DB',
+        background: {
+          DEFAULT: 'transparent',
+        },
+      },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
-        code: ["'JetBrains Mono'", "'Fira Code'", 'monospace'], 
+        sans: [
+          'JetBrains Mono',
+          'Fira Code',
+          'monospace',
+          ...defaultTheme.fontFamily.sans,
+        ],
+        mono: ['JetBrains Mono', 'Fira Code', 'monospace', ...defaultTheme.fontFamily.mono],
       },
     },
   },
-  plugins: [],
-};
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
+}
 
-export default config;
+export default config

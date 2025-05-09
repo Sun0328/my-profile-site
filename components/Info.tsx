@@ -1,28 +1,42 @@
-import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import Typewriter from "./animations/Typewriter";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import EmailIcon from '@mui/icons-material/Email';
 import Link from "next/link";
 
-export default function Info() {
-  return (
-    <div className="grid w-full grid-cols-[60%_40%] py-4 border-b-1 border-gray-300">
-      {/* left: 60% – stacked in one column */}
-      <div className="flex flex-col items-start justify-center space-y-4">
-        <div className='text-4xl'>
-          Hi, I'm Fiona
-        </div>
-        <pre className="w-full text-xl bg-gray-50 p-4 tracking-wide leading-loose">
-{`{
-  "name": "Fiona Sun",
+const aboutJSON = `{
+  \n  "name": "Fiona Sun",
   "MBTI": "infp",
   "role": "IT New Grad",
-  "motto": "Make Something Wonderful",
-}`}
-        </pre>
+  "motto": "Make Something Wonderful!"
+}`;
+
+const iconStyle = {
+  color: "#E5E7EB",
+  transition: "transform 0.3s ease",
+  "&:hover": {
+    transform: "scale(1.2)",
+  }
+};
+
+export default function Info() {
+  return (
+    <div className="grid w-full grid-cols-1 md:grid-cols-[60%_40%] pb-6 border-b-1 border-gray-500">
+      <div className="flex flex-col items-start justify-center space-y-4 w-full">
+        <div className='text-4xl font-bold my-8' style={{ 
+          fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
+          letterSpacing: "0.5px",
+          background: "linear-gradient(135deg, #4F46E5 0%, #A5B4FC 100%)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          textShadow: "0 2px 10px rgba(79, 70, 229, 0.3)",
+        }}>
+          Hi, I'm Fiona.
+        </div>
+        <Typewriter text={aboutJSON} speed={40} />
 
         <p
-          className="text-xl tracking-wide"
+          className="text-xl text-[#E5E7EB] tracking-wide leading-relaxed my-6"
           style={{ fontFamily: "'JetBrains Mono', 'Fira Code', monospace" }}
         >
           I'm a master student at University of Auckland majoring in Information Technology. 
@@ -33,28 +47,24 @@ export default function Info() {
         <div className='flex items-center justify-start space-x-6'>
           <Link
             href="https://www.linkedin.com/in/fiona-sun-424858270"
-            target="_blank"
-            rel="noopener noreferrer"
           >
-            <LinkedInIcon />
+            <LinkedInIcon sx={iconStyle} />
           </Link>
           <Link
             href="https://github.com/Sun0328"
-            target="_blank"
-            rel="noopener noreferrer"
           >
-            <GitHubIcon />
+            <GitHubIcon sx={iconStyle} />
           </Link>
           <a
             href="mailto:fiona.sun328@gmail.com"
           >
-            <EmailIcon />
+            <EmailIcon sx={iconStyle} />
           </a>
         </div>
       </div>
 
-      {/* right: 40% */}
-      <div className="flex items-center justify-center p-6">
+      {/* right: 在桌面端显示，移动端不显示 */}
+      <div className="hidden md:flex items-center justify-center p-6">
       </div>
     </div>
   );

@@ -22,6 +22,7 @@ export default function Stack() {
     <Card
       sx={{
         maxWidth: 400,
+        width: '100%',
         borderRadius: 3,
         backgroundColor: 'rgba(255, 255, 255, 0.05)',
         color: '#fff',
@@ -38,14 +39,14 @@ export default function Stack() {
             alt="Tech Icon"
             width={20}
             height={20}
-            style={{ marginRight: '8px' }}
+            style={{ marginRight: '12px' }}
           />
           <Typography variant="h6" sx={{ color: '#4F46E5' }}>
             Tech Stack
           </Typography>
         </Box>
 
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, px: 1}}>
           {icons.map((icon) => (
             <Image
               key={icon.alt}
