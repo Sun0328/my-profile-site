@@ -4,11 +4,13 @@ import { NextResponse } from 'next/server';
 
 const prisma = new PrismaClient();
 
-export async function GET(
+type Params = Promise<{ id: string }>
+
+export async function PATCH(
     request: NextRequest,
-    { params }: { params: Promise<{ id: string }> }
+    { params }: { params: Params }
 ) { 
-    const id = (await params).id;
+    const { id } = await params;
     
     try {
         const blogs = await prisma.blog.findMany({
