@@ -17,7 +17,7 @@ export default function messageList({ messages }: Props) {
     <div className="container mx-auto mt-10">
       <div className="flex flex-col gap-8 justify-center items-start">
         {sorted.map((message) => (
-            <div key={message.id} className="border-l-2 border-yellow-600 pl-6 my-2">
+            <div key={message.id} className="border-l-2 border-yellow-700 pl-6 my-2">
                 <div className='flex flex-row items-center gap-4 mb-4'>
                     <img src={message.sender_avatar} alt="user-avatar" className='w-8 h-8 rounded-full' />
                     <div className="text-sm">

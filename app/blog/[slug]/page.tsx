@@ -3,8 +3,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
+import Link from "next/link"
 import type { Blog } from '@/types/blog';
 import FloatingContent from '@/components/animations/FloatingContent';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 export default function BlogDetailPage() {
   const [blog, setBlog] = useState<Blog | null>(null);
@@ -31,7 +33,22 @@ export default function BlogDetailPage() {
 
   return (
     <FloatingContent>
-      <div className="max-w-3xl mx-auto py-10 px-4">
+      <div className="max-w-3xl mx-auto pt-5 pb-10 px-4">
+        
+        <div className='flex justify-start items-center'>
+          <Link href="/blog">
+            <button className='
+              bg-gray-600/30 px-4 py-2 mb-4 rounded-md 
+              cursor-pointer hover:bg-gray-600/50 
+              transition-all duration-200 ease-in-out
+            '
+            >
+              <ArrowBackIosIcon />
+              Back
+            </button>
+          </Link>
+        </div>
+
         <h1 className="text-3xl font-bold">{blog.title}</h1>
         <p className="text-sm text-gray-500 my-4">
           {new Date(blog.created_at).toLocaleDateString()} · By {blog.author}

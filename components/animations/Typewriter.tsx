@@ -16,7 +16,13 @@ export default function Typewriter({ text, speed = 30 }: { text: string; speed?:
   }, [text, speed]);
 
   return (
-    <pre className="w-full text-gray-700 md:text-lg bg-gray-50 p-4 font-mono leading-loose whitespace-pre-wrap rounded-lg">
+    <pre className="
+      w-full text-gray-700 md:text-lg 
+      bg-gray-700/30 p-4 
+      font-mono text-white leading-loose 
+      whitespace-pre-wrap rounded-lg
+      "
+    >
       {displayedText}
     </pre>
   );

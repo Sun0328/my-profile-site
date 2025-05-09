@@ -7,6 +7,7 @@ import MessageInput from "@/components/MessageInput";
 import SignOutBox from "@/components/SignOutBox";
 import MessageList from "@/components/messageList";
 import { SignedIn, SignedOut } from '@clerk/nextjs';
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 
 export default function Message() {
     const [messages, setMessages] = useState<Message[]>([])
@@ -24,7 +25,10 @@ export default function Message() {
     return (
         <div className="mx-auto px-6 mb-6">
             <FloatingContent>
-                <div className="text-3xl my-6">Message Board</div>
+                <div className="flex items-center gap-2 my-6">
+                    <ChatBubbleOutlineIcon className="text-3xl" />
+                    <h2 className="text-3xl text-gray-300 ml-2">Message Board</h2>
+                </div>
                 <div className="text-xl my-6">Feel free to leave a message for me!</div>
 
                 <SignedIn>  

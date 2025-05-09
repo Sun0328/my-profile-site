@@ -24,7 +24,7 @@ export default function AboutMe() {
             alt="Lightbulb"
             width={20}
             height={20}
-            style={{ marginRight: '8px' }}
+            style={{ marginRight: '12px' }}
           />
           <Typography variant="h6" sx={{ color: '#4F46E5' }}>
             About Me

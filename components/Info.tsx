@@ -12,7 +12,6 @@ const aboutJSON = `{
 }`;
 
 const iconStyle = {
-  color: "#F9EBB2",
   transition: "transform 0.3s ease",
   "&:hover": {
     transform: "scale(1.2)",

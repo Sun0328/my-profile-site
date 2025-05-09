@@ -32,13 +32,10 @@ export default function ProjectList() {
           >
             <div 
               className="
-              border border-indigo-500/40    
-              hover:border-2               
-              rounded-lg p-4 shadow-lg
-              h-full flex flex-col
-              transition-all duration-300 ease-in-out
-              hover:scale-[1.03] hover:shadow-xl
-              bg-gray-800/30
+              rounded-lg border border-indigo-500/40    
+              hover:border-[#4F46E5]          
+              transition-all duration-200 ease-in-out
+              hover:shadow-xl hover:scale-105
             "
             >
               <div className="flex items-center my-4 ml-4">
