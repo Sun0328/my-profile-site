@@ -3,13 +3,11 @@ import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Stack from "@mui/material/Stack";
-import Button, { type ButtonProps } from "@mui/material/Button";
+import Button from "@mui/material/Button";
 import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 
-// wrap MUI Button with framer-motion
-const MotionButton = motion<ButtonProps>(Button);
-
+// 不使用framer-motion包装MUI Button，改用各自独立的组件
 export const NavbarItems = [
   { name: "Home", href: "/" },
   { name: "Blog", href: "/blog" },
@@ -40,49 +38,51 @@ export const Navbar = () => {
         const isActive = pathname === item.href;
 
         return (
-          <MotionButton
+          <motion.div
             key={item.name}
-            variant="text"
-            component={Link}
-            href={item.href}
-            color="primary"
-            size="large"
             initial="rest"
-            // animate to "hover" if active, otherwise animate on hover only
             animate={isActive ? "hover" : undefined}
             whileHover="hover"
-            sx={{
-              position: "relative",
-              overflow: "hidden",
-              borderRadius: "9999px",
-              textTransform: "none",
-              px: 4,
-              py: 1.5,
-              fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
-              letterSpacing: "0.5px",
-              fontSize: "1.2rem",
-            }}
           >
-            {item.name}
+            <Button
+              variant="text"
+              component={Link}
+              href={item.href}
+              color="primary"
+              size="large"
+              sx={{
+                position: "relative",
+                overflow: "hidden",
+                borderRadius: "9999px",
+                textTransform: "none",
+                px: 4,
+                py: 1.5,
+                fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
+                letterSpacing: "0.5px",
+                fontSize: "1.2rem",
+              }}
+            >
+              {item.name}
 
-            {/* underline animation */}
-            <motion.div
-              variants={{
-                rest: { scaleX: 0 },
-                hover: { scaleX: 1 },
-              }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              style={{
-                position: "absolute",
-                bottom: 4,
-                left: 2,
-                width: "100%",
-                height: 2,
-                backgroundColor: theme.palette.primary.main,
-                transformOrigin: "left center",
-              }}
-            />
-          </MotionButton>
+              {/* underline animation */}
+              <motion.div
+                variants={{
+                  rest: { scaleX: 0 },
+                  hover: { scaleX: 1 },
+                }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                style={{
+                  position: "absolute",
+                  bottom: 4,
+                  left: 2,
+                  width: "100%",
+                  height: 2,
+                  backgroundColor: theme.palette.primary.main,
+                  transformOrigin: "left center",
+                }}
+              />
+            </Button>
+          </motion.div>
         );
       })}
     </Stack>
