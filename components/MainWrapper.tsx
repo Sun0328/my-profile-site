@@ -14,7 +14,7 @@ export const MainWrapper = () => {
         </section>
 
         {/* Main */}
-        <section className="flex w-full my-6 flex-col md:flex-row">
+        <section className="flex w-full my-6 flex-col md:flex-row gap-4">
 
           {/* Right side - Shows first on mobile */}
           <div className="w-full md:w-2/5 flex flex-col items-center justify-start mt-6 space-y-8 order-first md:order-last">

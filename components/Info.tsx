@@ -43,27 +43,30 @@ export default function Info() {
           Passionate about developing applications that merge purpose with aesthetics.
         </p>
 
-        {/* 3 contact icons in a row */}
+        {/* Social media contact icons */}
         <div className='flex items-center justify-start space-x-6'>
           <Link
             href="https://www.linkedin.com/in/fiona-sun-424858270"
+            target="_blank" rel="noopener noreferrer"
           >
             <LinkedInIcon sx={iconStyle} />
           </Link>
           <Link
             href="https://github.com/Sun0328"
+            target="_blank" rel="noopener noreferrer"
           >
             <GitHubIcon sx={iconStyle} />
           </Link>
           <a
             href="mailto:fiona.sun328@gmail.com"
+            target="_blank" rel="noopener noreferrer"
           >
             <EmailIcon sx={iconStyle} />
           </a>
         </div>
       </div>
 
-      {/* right: 在桌面端显示，移动端不显示 */}
+      {/* Right section - only visible on desktop */}
       <div className="hidden md:flex items-center justify-center p-6">
       </div>
     </div>

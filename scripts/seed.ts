@@ -1,12 +1,12 @@
- // prisma/seed.ts
+// prisma/seed.ts
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 async function main() {
   try {
-    // 清空
+    // Clear existing data
     await prisma.blog.deleteMany();
-    // 由于 TypeScript 类型问题，使用 Prisma 的任意访问方式
+    // Due to TypeScript typing issues, use Prisma's arbitrary access method
     await prisma.project.deleteMany();
 
     // seed blogs
@@ -74,7 +74,7 @@ Remember, small improvements add up to create a significantly faster user experi
     });
 
     // seed projects
-    // 由于 TypeScript 类型问题，使用 Prisma 的任意访问方式
+    // Due to TypeScript typing issues, use Prisma's arbitrary access method
     await prisma.project.createMany({
       data: [
         {
@@ -92,9 +92,9 @@ Remember, small improvements add up to create a significantly faster user experi
       ]
     });
 
-    console.log('🎉 seed 完成！');
+    console.log('🎉 Seed completed!');
   } catch (error) {
-    console.error('Seed 失败:', error);
+    console.error('Seed failed:', error);
     throw error;
   }
 }
