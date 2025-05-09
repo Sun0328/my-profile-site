@@ -3,7 +3,7 @@ import LockIcon from '@mui/icons-material/Lock';
 export default function SignOutBox() {
   return (
     <div className="
-        w-[70%] h-[120px] 
+        w-full md:w-[70%] h-[120px] 
         flex justify-center items-center 
         text-xl text-gray-500 
         border-1 border-gray-600 

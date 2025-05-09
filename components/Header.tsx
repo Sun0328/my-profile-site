@@ -30,8 +30,13 @@ export const Header = () => {
             <Avatar />
           </div>
           
-          {/* Auth buttons - right side */}
-          <div className="flex items-center justify-end">
+          {/* Github and Auth buttons - right side */}
+          <div className="flex items-center justify-end space-x-3">
+            <Link href="https://github.com/Sun0328/my-profile-site" target="_blank" rel="noopener noreferrer">
+              <div className="text-2xl text-white hover:text-gray-400 transition-transform duration-200 hover:scale-110">
+                <GitHubIcon fontSize="inherit"/>
+              </div>
+            </Link>
             <SignedOut>
               <SignInButton mode="modal">
                 <div
@@ -72,7 +77,12 @@ export const Header = () => {
         </div>
         
         {/* Auth - right */}
-        <div className="flex items-center justify-end">
+        <div className="flex items-center justify-end space-x-4">
+          <Link href="https://github.com/Sun0328/my-profile-site" target="_blank" rel="noopener noreferrer">
+            <div className="text-3xl text-white hover:text-gray-400 transition-transform duration-200 hover:scale-110">
+              <GitHubIcon fontSize="inherit"/>
+            </div>
+          </Link>
           <SignedOut>
             <SignInButton mode="modal">
               <div
