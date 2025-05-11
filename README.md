@@ -2,6 +2,8 @@
 
 A modern personal portfolio website built with Next.js, featuring a blog system, project showcase, and message board.
 
+![Demo](./public/screenshot/Home-page.png)
+
 ## Features
 
 - 🎨 Modern and responsive design
