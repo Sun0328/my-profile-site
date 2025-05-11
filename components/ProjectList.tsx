@@ -11,9 +11,13 @@ export default function ProjectList() {
 
   useEffect(() => {
     const fetchProjects = async () => {
-      const res = await fetch('/api/project');
-      const data = await res.json();
-      setProjects(data);
+      try {
+        const res = await fetch('/api/project');
+        const data = await res.json();
+        setProjects(data);
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+      }
     };
 
     fetchProjects();

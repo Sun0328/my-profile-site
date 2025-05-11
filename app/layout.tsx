@@ -5,6 +5,8 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ClerkProvider } from '@clerk/nextjs'
+import { LoadingProvider } from '../lib/loading-context';
+import { Loading } from "@/components/ui/loading";
 
 const theme = createTheme({
   palette: {
@@ -23,16 +25,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           backgroundRepeat: "no-repeat",
         }}>
           <ThemeProvider theme={theme}>
-            {/* Center the 80%-wide container with mx-auto */}
-            <div className="mx-auto w-[80%] flex flex-col min-h-screen">
+            <LoadingProvider>
+              {/* Center the 80%-wide container with mx-auto */}
+              <div className="mx-auto w-[80%] flex flex-col min-h-screen">
                 <Header />
-
                 <main className="flex-grow">
-                    {children}
+                  {children}
                 </main>
-
                 <Footer />
-            </div>
+              </div>
+              <Loading />
+            </LoadingProvider>
           </ThemeProvider>
         </body>
       </html>

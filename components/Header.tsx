@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navbar } from './Navbar'
 import { Avatar } from './Avatar'
+import AdminPanel from './AdminPanel'
 import Link from "next/link";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
@@ -9,9 +10,13 @@ import {
   SignedIn,
   SignedOut,
   UserButton,
+  useUser,
 } from '@clerk/nextjs'
 
 export const Header = () => {
+
+  const { user } = useUser();
+
   return (
     <header className="w-full py-4 mt-2">
       {/* Mobile layout: two rows */}
@@ -32,11 +37,13 @@ export const Header = () => {
           
           {/* Github and Auth buttons - right side */}
           <div className="flex items-center justify-end space-x-3">
+
             <Link href="https://github.com/Sun0328/my-profile-site" target="_blank" rel="noopener noreferrer">
               <div className="text-2xl text-white hover:text-gray-400 transition-transform duration-200 hover:scale-110">
                 <GitHubIcon fontSize="inherit"/>
               </div>
             </Link>
+
             <SignedOut>
               <SignInButton mode="modal">
                 <div
@@ -59,6 +66,9 @@ export const Header = () => {
 
             <SignedIn>
               <UserButton />
+              <div className="text-2xl text-white hover:text-gray-400 transition-transform duration-200 hover:scale-110">
+                {user?.publicMetadata.role === "admin" && <AdminPanel />}
+              </div>
             </SignedIn>
           </div>
         </div>
@@ -77,7 +87,10 @@ export const Header = () => {
         </div>
         
         {/* Auth - right */}
-        <div className="flex items-center justify-end space-x-4">
+        <div className="flex items-center justify-end space-x-6">
+          <div className="text-3xl text-white cursor-pointer hover:text-gray-400 transition-transform duration-200 hover:scale-110">
+          </div>
+
           <Link href="https://github.com/Sun0328/my-profile-site" target="_blank" rel="noopener noreferrer">
             <div className="text-3xl text-white hover:text-gray-400 transition-transform duration-200 hover:scale-110">
               <GitHubIcon fontSize="inherit"/>
@@ -105,6 +118,9 @@ export const Header = () => {
 
           <SignedIn>
             <UserButton />
+              <div className="text-2xl text-white hover:text-gray-400 transition-transform duration-200 hover:scale-110">
+                {user?.publicMetadata.role === "admin" && <AdminPanel />}
+              </div>
           </SignedIn>
         </div>
       </div>

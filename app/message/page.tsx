@@ -13,9 +13,13 @@ export default function Message() {
     const [messages, setMessages] = useState<Message[]>([])
 
     const fetchMessages = useCallback(async () => {
-        const res = await fetch('/api/message')
-        const data = await res.json()
-        setMessages(data)
+        try {
+            const res = await fetch('/api/message')
+            const data = await res.json()
+            setMessages(data)
+        } catch (error) {
+            console.error('Error fetching messages:', error);
+        }
     }, [])
 
     useEffect(() => {
