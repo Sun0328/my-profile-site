@@ -1,14 +1,14 @@
 // app/api/blog/[id]/route.ts
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import type { blog } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
 
 export async function GET(
-  request: Request,
+  request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
-) {
-  const id = (await params).id;
+): Promise<NextResponse> {
   try {
+    const id = (await params).id;
     const blogs = await prisma.blog.findMany({
       orderBy: { created_at: 'desc' },
     });
@@ -28,11 +28,11 @@ export async function GET(
 }
 
 export async function DELETE(
-  request: Request,
+  request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
-) {
-  const id = (await params).id;
+): Promise<NextResponse> {
   try {
+    const id = (await params).id;
     const blog = await prisma.blog.findUnique({
       where: { id: BigInt(id) },
     });
