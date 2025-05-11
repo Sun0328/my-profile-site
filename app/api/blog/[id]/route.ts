@@ -3,13 +3,11 @@ import { NextResponse } from 'next/server';
 import type { blog } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
 
-export const runtime = 'nodejs';
-
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = params;
+  const id = (await params).id;
   try {
     const blogs = await prisma.blog.findMany({
       orderBy: { created_at: 'desc' },
@@ -31,9 +29,9 @@ export async function GET(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = params;
+  const id = (await params).id;
   try {
     const blog = await prisma.blog.findUnique({
       where: { id: BigInt(id) },
