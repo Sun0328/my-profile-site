@@ -136,7 +136,7 @@ export function ProjectForm({ onSubmit }: ProjectFormProps) {
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white hover:bg-gray-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white cursor-pointer hover:bg-gray-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={isSubmitting}
           >
             Choose SVG File
@@ -176,7 +176,7 @@ export function ProjectForm({ onSubmit }: ProjectFormProps) {
       <div className="flex justify-end pt-4">
         <button
           type="submit"
-          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-4 py-2 bg-[#4F46E5] text-white rounded cursor-pointer hover:bg-[#4F46E5]/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           disabled={isSubmitting}
         >
           {isSubmitting ? 'Submitting...' : 'Submit'}

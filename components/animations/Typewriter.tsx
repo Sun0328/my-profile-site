@@ -17,9 +17,9 @@ export default function Typewriter({ text, speed = 30 }: { text: string; speed?:
 
   return (
     <pre className="
-      w-full text-gray-700 md:text-lg 
-      bg-gray-700/30 p-4 
-      font-mono text-white leading-loose 
+      w-full bg-gray-900/50
+      text-gray-300 md:text-lg p-4 
+      font-mono leading-loose 
       whitespace-pre-wrap rounded-lg
       "
     >

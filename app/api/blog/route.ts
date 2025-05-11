@@ -1,7 +1,6 @@
 // app/api/blogs/route.ts
 import { PrismaClient } from '@prisma/client';
 import { NextResponse } from 'next/server';
-import { Blog } from '@/types/blog';
 
 const prisma = new PrismaClient();
 
@@ -31,10 +30,9 @@ export async function GET() {
 // POST: create a new blog
 export async function POST(request: Request) {
   try {
-    // 获取请求体中的数据
     const data = await request.json();
     
-    // 验证必填字段
+    // validate the required fields
     if (!data.title || !data.author || !data.content) {
       return NextResponse.json(
         { error: 'Missing required fields' },
@@ -42,7 +40,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // 创建新博客
+    // create a new blog
     const blog = await prisma.blog.create({
       data: {
         title: data.title,
@@ -52,7 +50,7 @@ export async function POST(request: Request) {
       },
     });
 
-    // 返回创建成功的博客数据
+    // return the created blog data
     return NextResponse.json({
       ...blog,
       id: blog.id.toString(),

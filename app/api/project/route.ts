@@ -1,6 +1,5 @@
 import { PrismaClient } from '@prisma/client';
 import { NextResponse } from 'next/server';
-import { Project } from '@/types/project';
 
 const prisma = new PrismaClient();
 
@@ -30,10 +29,10 @@ export async function GET() {
 // POST: create a new project
 export async function POST(request: Request) {
   try {
-    // 获取请求体中的数据
+    // get the data from the request body
     const data = await request.json();
     
-    // 验证必填字段
+    // validate the required fields
     if (!data.title || !data.description) {
       return NextResponse.json(
         { error: 'Missing required fields' },
@@ -41,7 +40,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // 创建新项目
+    // create a new project
     const project = await prisma.project.create({
       data: {
         title: data.title,
@@ -51,7 +50,7 @@ export async function POST(request: Request) {
       },
     });
 
-    // 返回创建成功的项目数据
+    // return the created project data
     return NextResponse.json({
       ...project,
       id: project.id.toString(),

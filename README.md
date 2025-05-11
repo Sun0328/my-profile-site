@@ -2,6 +2,8 @@
 
 A modern personal portfolio website built with Next.js, featuring a blog system, project showcase, and message board.
 
+![Demo](./public/screenshot/Home-page.png)
+
 ## Features
 
 - 🎨 Modern and responsive design
@@ -18,9 +20,9 @@ A modern personal portfolio website built with Next.js, featuring a blog system,
 - **Styling**: Tailwind CSS
 - **UI Components**:
   - Material-UI (MUI)
-  - Custom components
+  - Lucide
 - **Authentication**: Clerk
-- **Database**: Prisma with PostgreSQL
+- **Database**: Prisma & Supabase
 - **Deployment**: Vercel
 
 ## Getting Started
