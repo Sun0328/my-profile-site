@@ -48,7 +48,7 @@ export default function AdminPage() {
 
   return (
     <div className="flex flex-col items-start justify-start min-h-screen text-white m-10">
-      <h1 className="text-3xl mb-8 pl-4 border-l-2 border-[#4F46E5]">Admin Panel</h1>
+      <h1 className="text-3xl mb-8 pl-6 border-l-2 border-[#4F46E5]">Admin Panel</h1>
       
       {/* Blogs Section */}
       <div className="w-full mb-12">

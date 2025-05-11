@@ -1,6 +1,4 @@
 export default async function handleProjectDelete(projectId: string): Promise<{ success: boolean; error?: string }> {
-    console.log("projectId", projectId);
-
     try {
         const response = await fetch(`/api/project/${projectId}`, {
             method: 'DELETE',

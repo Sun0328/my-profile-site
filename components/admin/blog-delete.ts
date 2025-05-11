@@ -1,6 +1,4 @@
 export default async function handleBlogDelete(blogId: string): Promise<{ success: boolean; error?: string }> {
-    console.log("blogId", blogId);
-
     try {
         const response = await fetch(`/api/blog/${blogId}`, {
             method: 'DELETE',

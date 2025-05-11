@@ -33,9 +33,10 @@ export default function Info() {
         }}>
           Hi, I'm Fiona.
         </div>
+        
         <Typewriter text={aboutJSON} speed={40} />
 
-        <div className="pl-8 border-l-2 border-[#4F46E5]">
+        <div className="pl-8 my-4 border-l-2 border-[#4F46E5]">
           <p
             className="text-xl text-[#E5E7EB] tracking-wide leading-relaxed my-6"
             style={{ fontFamily: "'JetBrains Mono', 'Fira Code', monospace" }}
@@ -44,6 +45,7 @@ export default function Info() {
             Passionate about developing applications that merge purpose with aesthetics.
           </p>
         </div>
+        
         {/* Social media contact icons */}
         <div className='flex items-center justify-start space-x-6'>
           <Link
