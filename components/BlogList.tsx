@@ -9,9 +9,13 @@ export default function BlogList() {
 
   useEffect(() => {
     const fetchBlogs = async () => {
-      const res = await fetch('/api/blog');
-      const data = await res.json();
-      setBlogs(data);
+      try {
+        const res = await fetch('/api/blog');
+        const data = await res.json();
+        setBlogs(data);
+      } catch (error) {
+        console.error('Error fetching blogs:', error);
+      }
     };
 
     fetchBlogs();

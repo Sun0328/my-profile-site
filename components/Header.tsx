@@ -66,6 +66,9 @@ export const Header = () => {
 
             <SignedIn>
               <UserButton />
+              <div className="text-2xl text-white hover:text-gray-400 transition-transform duration-200 hover:scale-110">
+                {user?.publicMetadata.role === "admin" && <AdminPanel />}
+              </div>
             </SignedIn>
           </div>
         </div>
