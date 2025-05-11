@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useLoading } from '../loading-context';
+import { useLoading } from '@/lib/loading-context';
 import { Blog } from '@/types/blog';
 import { Project } from '@/types/project';
 

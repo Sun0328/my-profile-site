@@ -29,3 +29,34 @@ export async function GET(
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }
+
+export async function DELETE(
+  request: Request,
+  { params }: { params: Promise<{ id: string }> }  
+) {
+  const { id } = await params
+
+  try {
+    // check if the blog exists
+    const blog = await prisma.blog.findUnique({
+      where: { id: BigInt(id) }
+    })
+
+    if (!blog) {
+      return NextResponse.json({ error: 'Blog not found' }, { status: 404 })
+    }
+
+    // delete the blog
+    await prisma.blog.delete({
+      where: { id: BigInt(id) }
+    })
+
+    return NextResponse.json({ message: 'Blog deleted successfully' })
+  } catch (error) {
+    console.error('Error deleting blog:', error)
+    return NextResponse.json(
+      { error: 'Failed to delete blog' },
+      { status: 500 }
+    )
+  }
+}

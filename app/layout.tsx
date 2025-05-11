@@ -5,7 +5,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ClerkProvider } from '@clerk/nextjs'
-import { LoadingProvider } from '../lib/loading-context';
+import { LoadingProvider } from '@/lib/loading-context';
 import { Loading } from "@/components/ui/loading";
 
 const theme = createTheme({
