@@ -1,47 +1,55 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import useSWR from 'swr';
 import Link from 'next/link';
 import type { Blog } from '@/types/blog';
 
+const fetcher = (url: string) => fetch(url).then(res => res.json());
+
 export default function BlogList() {
-  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const { data: blogs, error } = useSWR<Blog[]>('/api/blog', fetcher, {
+    // 60 seconds
+    dedupingInterval: 60_000,
+    // don't revalidate on focus
+    revalidateOnFocus: false,
+  });
 
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const res = await fetch('/api/blog');
-        const data = await res.json();
-        setBlogs(data);
-      } catch (error) {
-        console.error('Error fetching blogs:', error);
-      }
-    };
-
-    fetchBlogs();
-  }, []);
+  if (error) {
+    return <div className="text-red-400">Failed to load blogs</div>;
+  }
+  if (!blogs) {
+    return <div className="text-gray-500">Loading...</div>;
+  }
 
   return (
     <div className="flex flex-col gap-8">
-        {blogs.map((blog) => (
-          <Link href={`/blog/${blog.id}`} key={blog.id}>
-            <div className="
-                border border-indigo-500/40 
-                rounded-lg p-4 shadow-lg bg-gray-800/30
-                hover:border-[#4F46E5] 
-                transition-all duration-200 ease-in-out
-                hover:shadow-xl hover:scale-102
-              " 
-            style={{ borderColor: 'rgba(79, 70, 229, 0.4)' }}
-            >
-              <img src={blog.photo || ''} alt={blog.title} className="w-full h-48 object-cover rounded-md mb-4" />
-              <h2 className="text-xl font-semibold mb-2" style={{ color: '#4F46E5' }}>{blog.title}</h2>
-              <p className="text-sm text-gray-400">
-                By {blog.author} · {new Date(blog.created_at).toLocaleDateString()}
-              </p>
-            </div>
-          </Link>
-        ))}
+      {blogs.map(blog => (
+        <Link
+          href={`/blog/${blog.id}`}
+          key={blog.id}
+          prefetch={true}
+          className="
+            block
+            border border-indigo-500/40 
+            rounded-lg p-4 shadow-lg bg-gray-800/30
+            hover:border-indigo-600 hover:shadow-xl transform hover:scale-102
+            transition-all duration-200 ease-in-out
+          "
+          style={{ borderColor: 'rgba(79, 70, 229, 0.4)' }}
+        >
+          <img
+            src={blog.photo || '/default.jpg'}
+            alt={blog.title}
+            className="w-full h-48 object-cover rounded-md mb-4"
+          />
+          <h2 className="text-xl font-semibold mb-2 text-indigo-600">
+            {blog.title}
+          </h2>
+          <p className="text-sm text-gray-400">
+            By {blog.author} · {new Date(blog.created_at).toLocaleDateString()}
+          </p>
+        </Link>
+      ))}
     </div>
   );
 }

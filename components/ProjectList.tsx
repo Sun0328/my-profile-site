@@ -1,48 +1,48 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import useSWR from 'swr';
 import Link from 'next/link';
 import Image from 'next/image';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import type { Project } from '@/types/project';
 
+const fetcher = (url: string) => fetch(url).then(res => res.json());
+
 export default function ProjectList() {
-  const [projects, setProjects] = useState<Project[]>([]);
+  const { data: projects, error } = useSWR<Project[]>('/api/project', fetcher, {
+    // 60 seconds
+    dedupingInterval: 60_000,
+    // don't revalidate on focus
+    revalidateOnFocus: false,
+  });
 
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const res = await fetch('/api/project');
-        const data = await res.json();
-        setProjects(data);
-      } catch (error) {
-        console.error('Error fetching projects:', error);
-      }
-    };
-
-    fetchProjects();
-  }, []);
+  if (error) {
+    return <div className="text-red-400">Failed to load projects</div>;
+  }
+  if (!projects) {
+    return <div className="text-gray-500">Loading...</div>;
+  }
 
   return (
     <div className="container mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
         {projects.map((project) => (
           <Link 
-            href={`${project.link}`} 
+            href={project.link || ''}
             key={project.id} 
-            className="w-full max-w-md"
             target="_blank"
             rel="noopener noreferrer"
+            className="w-full max-w-md"
           >
             <div 
               className="
-              px-2 py-2 rounded-lg bg-gray-700/20
-              border border-indigo-500/40    
-              hover:border-[#4F46E5]          
-              transition-all duration-200 ease-in-out
-              hover:shadow-xl hover:scale-105
-              h-[280px] w-full flex flex-col
-            "
+                px-2 py-2 rounded-lg bg-gray-700/20
+                border border-indigo-500/40    
+                hover:border-indigo-600          
+                transition-all duration-200 ease-in-out
+                hover:shadow-xl hover:scale-105
+                h-[280px] w-full flex flex-col
+              "
             >
               <div className="flex items-center my-4 ml-4">
                 {project.icon && (
@@ -67,13 +67,10 @@ export default function ProjectList() {
                 {project.description}
               </div>
 
-              <div className="text-gray-300 text-sm flex flex-row items-center ml-4 mb-4 space-x-2 mt-auto">
+              <div className="text-gray-300 text-sm flex items-center ml-4 mb-4 mt-auto space-x-2">
                 Github: 
-                <div className="ml-2">
-                    <OpenInNewIcon color="primary"/>
-                </div>
+                <OpenInNewIcon color="primary" />
               </div>
-
             </div>
           </Link>
         ))}
