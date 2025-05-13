@@ -2,6 +2,7 @@
 
 import useSWR from 'swr';
 import Link from 'next/link';
+import LoadingThreeDotsJumping from '@/components/animations/LoadingThreeDotsJumping';
 import type { Blog } from '@/types/blog';
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
@@ -18,7 +19,9 @@ export default function BlogList() {
     return <div className="text-red-400">Failed to load blogs</div>;
   }
   if (!blogs) {
-    return <div className="text-gray-500">Loading...</div>;
+    return (
+        <LoadingThreeDotsJumping />
+    );
   }
 
   return (

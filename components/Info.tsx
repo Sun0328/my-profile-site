@@ -1,8 +1,11 @@
+'use client';
+
 import Typewriter from "./animations/Typewriter";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import EmailIcon from '@mui/icons-material/Email';
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const aboutJSON = `{
   \n  "name": "Fiona Sun",
@@ -36,7 +39,14 @@ export default function Info() {
         
         <Typewriter text={aboutJSON} speed={40} />
 
-        <div className="pl-8 my-4 border-l-2 border-[#4F46E5]">
+        <div className="relative pl-8 my-4">
+          <motion.div
+            initial={{ height: 0 }}
+            animate={{ height: "100%" }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+            className="absolute left-0 top-0 w-0.5 bg-[#4F46E5]"
+            style={{ borderRadius: 2 }}
+          />
           <p
             className="text-xl text-[#E5E7EB] tracking-wide leading-relaxed my-6"
             style={{ fontFamily: "'JetBrains Mono', 'Fira Code', monospace" }}

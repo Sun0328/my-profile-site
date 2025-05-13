@@ -5,7 +5,7 @@ import ArticleIcon from '@mui/icons-material/Article';
 
 export default function BlogPage() {
   return (
-    <div className="mx-auto px-6 mb-6">
+    <div className="mx-auto mb-6">
       <FloatingContent>
         <div className="flex items-center gap-2 my-6 pl-6 border-l-2 border-[#4F46E5]">
           <h2 className="text-3xl text-gray-300 mr-2">Blogs</h2>

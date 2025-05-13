@@ -1,7 +1,7 @@
 'use client';
 
 import type { Message } from '@/types/message';
-import { formatRelativeTime } from '@/lib/time';    
+import { formatRelativeTime } from '@/lib/time';   
 
 interface Props { messages: Message[] }
 

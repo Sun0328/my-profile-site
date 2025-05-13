@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { useUser } from "@clerk/nextjs"
+import { toast } from 'react-toastify';
+
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -34,17 +36,16 @@ const StyledTextField = styled(TextField)({
 
 export default function MessageInput({ onSent }: Props) {
     const { user } = useUser()
-
-    console.log(user);
-    console.log(user?.imageUrl);
-    console.log(user?.fullName);
-    
     
     const [message, setMessage] = useState(''); 
+    const [isSending, setIsSending] = useState(false);
+
     const isMessageEmpty = message.trim() === '';   
+
     const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault()
       if (!message.trim()) return   
+      setIsSending(true);
       const res = await fetch('/api/message', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -58,7 +59,9 @@ export default function MessageInput({ onSent }: Props) {
       if (res.ok) {
         setMessage('')
         onSent()
+        toast.success('Message sent successfully!');
       }
+      setIsSending(false);
     }   
     return (
       <Box
@@ -97,7 +100,7 @@ export default function MessageInput({ onSent }: Props) {
                 color="primary" 
                 type="submit"
                 endIcon={<SendIcon />}
-                disabled={isMessageEmpty}
+                disabled={isMessageEmpty || isSending}
                 sx={{ 
                     alignSelf: 'flex-end',
                     textTransform: 'none',
@@ -110,9 +113,9 @@ export default function MessageInput({ onSent }: Props) {
                     }
                 }}
                 >
-                Send
+                {isSending ? 'Sending...' : 'Send'}
             </Button>
-        </div> 
+        </div>
       </Box>
     );
 }
