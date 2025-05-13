@@ -47,7 +47,7 @@ export default function BlogDetailPage() {
       <div className="max-w-3xl mx-auto pt-5 pb-10 px-4 text-[#E5E7EB]">
         <div className="flex items-center mb-4">
           <Link href="/blog" prefetch>
-            <button className="flex items-center bg-gray-600/30 px-4 py-2 rounded-md hover:bg-gray-600/50 transition-all duration-200 ease-in-out">
+            <button className="flex items-center bg-gray-600/30 px-4 py-2 rounded-md cursor-pointer hover:bg-gray-600/50 transition-all duration-200 ease-in-out">
               <ArrowBackIosIcon />
               <span className="ml-1">Back</span>
             </button>
