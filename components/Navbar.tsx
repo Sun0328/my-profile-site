@@ -7,6 +7,9 @@ import Button from "@mui/material/Button";
 import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 
+// 定义统一的紫色
+const PURPLE_COLOR = '#4F46E5'; // 一个漂亮的紫色
+
 // 不使用framer-motion包装MUI Button，改用各自独立的组件
 export const NavbarItems = [
   { name: "Home", href: "/" },
@@ -28,10 +31,18 @@ export const Navbar = () => {
       sx={{ 
         height: 56,
         border: '1px solid',
-        borderColor: 'grey.500',
+        borderColor: 'rgba(255, 255, 255, 0.1)',
         borderRadius: '99px',
         px: 2,
         py: 5,
+        background: 'rgba(255, 255, 255, 0.05)',
+        backdropFilter: 'blur(10px)',
+        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        transition: 'all 0.3s ease',
+        '&:hover': {
+          boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+          transform: 'translateY(-2px)',
+        }
       }}
     >
       {NavbarItems.map((item) => {
@@ -43,12 +54,14 @@ export const Navbar = () => {
             initial="rest"
             animate={isActive ? "hover" : undefined}
             whileHover="hover"
+            style={{
+              perspective: '1000px',
+            }}
           >
             <Button
               variant="text"
               component={Link}
               href={item.href}
-              color="primary"
               size="large"
               sx={{
                 position: "relative",
@@ -60,6 +73,15 @@ export const Navbar = () => {
                 fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
                 letterSpacing: "0.5px",
                 fontSize: "1.2rem",
+                background: 'transparent',
+                color: PURPLE_COLOR,
+                boxShadow: 'none',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-1px) scale(1.02)',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                  background: 'rgba(255, 255, 255, 0.05)',
+                }
               }}
             >
               {item.name}
@@ -67,8 +89,8 @@ export const Navbar = () => {
               {/* underline animation */}
               <motion.div
                 variants={{
-                  rest: { scaleX: 0 },
-                  hover: { scaleX: 1 },
+                  rest: { scaleX: 0, opacity: 0 },
+                  hover: { scaleX: 1, opacity: 1 },
                 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 style={{
@@ -77,8 +99,9 @@ export const Navbar = () => {
                   left: 2,
                   width: "100%",
                   height: 2,
-                  backgroundColor: theme.palette.primary.main,
+                  backgroundColor: PURPLE_COLOR,
                   transformOrigin: "left center",
+                  opacity: isActive ? 1 : 0.7,
                 }}
               />
             </Button>

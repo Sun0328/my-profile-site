@@ -12,18 +12,22 @@ import {
   UserButton,
   useUser,
 } from '@clerk/nextjs'
+import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 export const Header = () => {
 
   const { user } = useUser();
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   return (
-    <header className="w-full py-4 mt-2">
+    <header className="w-full py-2 mt-2">
       {/* Mobile layout: two rows */}
       <div className="block lg:hidden px-4">
         {/* Nav bar - centered on mobile */}
-        <div className="flex justify-center items-center w-full mb-4">
-          <div className="scale-60">
+        <div className="flex justify-center items-center w-full">
+          <div className="scale-65">
             <Navbar />
           </div>
         </div>
@@ -32,7 +36,26 @@ export const Header = () => {
         <div className="flex justify-between items-center w-full">
           {/* Avatar - left side */}
           <div className="scale-75">
-            <Avatar />
+            <Link href="/">
+              <motion.div
+                animate={{
+                  y: isHomePage ? 20 : 0,
+                  scale: isHomePage ? 1.2 : 1,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 15,
+                  duration: 0.5
+                }}
+                style={{
+                  cursor: "pointer",
+                  display: "inline-block"
+                }}
+              >
+                <Avatar />
+              </motion.div>
+            </Link>
           </div>
           
           {/* Github and Auth buttons - right side */}
@@ -75,10 +98,27 @@ export const Header = () => {
       </div>
       
       {/* Desktop layout: single row with three components */}
-      <div className="hidden lg:flex lg:flex-row lg:items-center lg:justify-between px-4 lg:px-8">
+      <div className="hidden lg:flex lg:flex-row lg:items-center lg:justify-between mt-2">
         {/* Avatar - left */}
         <Link href="/">
-          <Avatar />
+          <motion.div
+            animate={{
+              y: isHomePage ? 20 : 0,
+              scale: isHomePage ? 1.2 : 1,
+            }}
+            transition={{
+              type: "tween",
+              ease: "easeOut",
+              duration: 1.0
+            }}
+            style={{
+              cursor: "pointer",
+              display: "inline-block",
+              marginBottom: isHomePage ? "1rem" : "0"
+            }}
+          >
+            <Avatar />
+          </motion.div>
         </Link>
         
         {/* Navbar - center */}
