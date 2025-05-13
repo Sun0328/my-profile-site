@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ClerkProvider } from '@clerk/nextjs'
 import { LoadingProvider } from '@/lib/loading-context';
+import { ToastContainer } from 'react-toastify';
 import { Loading } from "@/components/ui/loading";
 
 const theme = createTheme({
@@ -36,6 +37,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
               <Loading />
             </LoadingProvider>
+
+            {/* Toast container */}
+            <ToastContainer
+              position="top-center"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              pauseOnHover
+              draggable
+              theme="light"
+            />
           </ThemeProvider>
         </body>
       </html>

@@ -8,6 +8,7 @@ import SignOutBox from "@/components/SignOutBox"
 import MessageList from "@/components/messageList"
 import { SignedIn, SignedOut } from '@clerk/nextjs'
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline'
+import LoadingThreeDotsJumping from '@/components/animations/LoadingThreeDotsJumping';
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
@@ -25,11 +26,13 @@ export default function Message() {
     return <div className="text-red-400 px-6">Failed to load messages</div>
   }
   if (!messages) {
-    return <div className="text-gray-500 px-6">Loading...</div>
+    return (
+      <LoadingThreeDotsJumping />
+    );
   }
 
   return (
-    <div className="mx-auto px-6 mb-6">
+    <div className="mx-auto mb-6">
       <FloatingContent>
         <div className="flex items-center gap-2 my-6 pl-6 border-l-2 border-indigo-600">
           <h2 className="text-3xl text-gray-300 mr-2">Message Board</h2>

@@ -9,6 +9,7 @@ import Link from 'next/link';
 import type { Blog } from '@/types/blog';
 import FloatingContent from '@/components/animations/FloatingContent';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import LoadingThreeDotsJumping from '@/components/animations/LoadingThreeDotsJumping';
 
 const fetcher = (url: string) =>
   fetch(url).then(res => {
@@ -39,7 +40,7 @@ export default function BlogDetailPage() {
   }, [blog?.content]);
 
   if (error) return <p className="text-red-500 px-4">Failed to load blog</p>;
-  if (!blog) return <p className="px-4 text-gray-500">Loading...</p>;
+  if (!blog) return <LoadingThreeDotsJumping />;
 
   return (
     <FloatingContent>

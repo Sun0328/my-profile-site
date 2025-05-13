@@ -4,6 +4,7 @@ import useSWR from 'swr';
 import Link from 'next/link';
 import Image from 'next/image';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import LoadingThreeDotsJumping from '@/components/animations/LoadingThreeDotsJumping';
 import type { Project } from '@/types/project';
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
@@ -19,8 +20,11 @@ export default function ProjectList() {
   if (error) {
     return <div className="text-red-400">Failed to load projects</div>;
   }
+
   if (!projects) {
-    return <div className="text-gray-500">Loading...</div>;
+    return (
+        <LoadingThreeDotsJumping />
+    );
   }
 
   return (
