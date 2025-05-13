@@ -2,7 +2,7 @@
 
 A modern personal portfolio website built with Next.js, featuring a blog system, project showcase, and message board.
 
-![Demo](./public/screenshot/Home-page.png)
+![Demo](./public/demo/demo-01.gif)
 
 ## Features
 
@@ -55,7 +55,7 @@ yarn install
 
 ```env
 # Database
-DATABASE_URL="postgresql://username:password@localhost:5432/mydb"
+DATABASE_URL=your_database_url
 
 # Clerk Authentication
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
