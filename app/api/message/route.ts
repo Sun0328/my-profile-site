@@ -5,7 +5,9 @@ const prisma = new PrismaClient();
 
 // GET: get all messages
 export async function GET() {
-    const messages = await prisma.message.findMany();
+    const messages = await prisma.message.findMany({
+        orderBy: { created_at: 'desc' },
+    });
 
     // BigInt to string
     const serialized = messages.map((message) => ({
