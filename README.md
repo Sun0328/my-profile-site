@@ -2,12 +2,20 @@
 
 A modern personal portfolio website built with Next.js, featuring a blog system, project showcase, and message board.
 
+![Home](screenshot/home.png)
+
 ## Features
 
 - 🎨 Modern and responsive design
+![Home](screenshot/home-mobile.png)
 - 📝 Blog system
+![Home](screenshot/blog.png)
 - 🚀 Project showcase with GitHub integration
+![Home](screenshot/project.png)
 - 💬 Interactive message board
+![Home](screenshot/message.png)
+- ⚙️ Admin panel for adding and deleting data (restricted to admin only)
+![Admin Panel](screenshot/admin.png)
 - 🔐 User authentication with Clerk
 - 📱 Mobile-friendly interface
 
@@ -82,21 +90,22 @@ Visit `http://localhost:3000` to see your site.
 
 ```
 my-profile-site/
-├── app/                 
+├── app/
+│   ├── api/               # API routes                 
 │   ├── admin/             # Admin page
-│   ├── api/               # API routes
 │   ├── blog/              # Blog pages
 │   ├── project/           # Project page
 │   ├── message/           # Message board
-│   └── layout.tsx         # Root layout
-│   └── page.tsx           # Header + (main) + Footer
+│   └── layout.tsx         # Root layout: Header + (main) + Footer
+│   └── page.tsx           # Main Wrapper
 ├── components/
 │   ├── admin/             # Admin components           
 │   ├── animations/        # Animation components
 │   └── ui/                # UI components
 ├── lib/                   # Utility functions and hooks
+├── middleware/            # For clerk
 ├── prisma/                # Database schema and migrations
-├── public/                # Static assets
+├── public/                # Static assets（icons, screenshots, images, avatar）
 └── types/                 # TypeScript type definitions
 ```
 
@@ -122,12 +131,6 @@ my-profile-site/
 - Responsive message list
 - Admin moderation capabilities
 
-### Loading States
-
-- Global loading state management
-- Smooth loading transitions
-- Error handling and retry mechanisms
-
 ## Development
 
 ### Available Scripts
@@ -137,9 +140,3 @@ my-profile-site/
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
 - `npm run type-check` - Run TypeScript type checking
-
-### Code Style
-
-- ESLint for code linting
-- Prettier for code formatting
-- TypeScript for type safety
