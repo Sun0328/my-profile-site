@@ -2,20 +2,20 @@
 
 A modern personal portfolio website built with Next.js, featuring a blog system, project showcase, and message board.
 
-![Home](screenshot/home.png)
+![Home](public/screenshot/home.png)
 
 ## Features
 
 - 🎨 Modern and responsive design
-![Home](screenshot/home-mobile.png)
+![Home](public/screenshot/home-mobile.png)
 - 📝 Blog system
-![Home](screenshot/blog.png)
+![Home](public/screenshot/blog.png)
 - 🚀 Project showcase with GitHub integration
-![Home](screenshot/project.png)
+![Home](public/screenshot/project.png)
 - 💬 Interactive message board
-![Home](screenshot/message.png)
+![Home](public/screenshot/message.png)
 - ⚙️ Admin panel for adding and deleting data (restricted to admin only)
-![Admin Panel](screenshot/admin.png)
+![Admin Panel](public/screenshot/admin.png)
 - 🔐 User authentication with Clerk
 - 📱 Mobile-friendly interface
 
