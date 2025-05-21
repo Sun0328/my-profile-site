@@ -27,7 +27,7 @@ export const Header = () => {
       <div className="block lg:hidden px-4">
         {/* Nav bar - centered on mobile */}
         <div className="flex justify-center items-center w-full">
-          <div className="scale-65">
+          <div className="scale-60">
             <Navbar />
           </div>
         </div>

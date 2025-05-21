@@ -7,10 +7,8 @@ import Button from "@mui/material/Button";
 import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 
-// 定义统一的紫色
-const PURPLE_COLOR = '#4F46E5'; // 一个漂亮的紫色
+const PURPLE_COLOR = '#4F46E5';
 
-// 不使用framer-motion包装MUI Button，改用各自独立的组件
 export const NavbarItems = [
   { name: "Home", href: "/" },
   { name: "Blog", href: "/blog" },
