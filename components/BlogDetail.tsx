@@ -8,6 +8,7 @@ import type { Blog } from '@/types/blog';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import LoadingThreeDotsJumping from '@/components/animations/LoadingThreeDotsJumping';
 import { convertMarkdownToHtml } from '@/lib/post';
+import styles from '@/components/css/markdown.module.css';
 
 // fetcher
 const fetcher = (url: string) =>
@@ -69,6 +70,7 @@ export default function BlogDetail() {
           )}
 
           <div
+            className={styles.markdown}
             dangerouslySetInnerHTML={{ __html: contentHtml }}
           />
         </div>
